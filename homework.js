@@ -37,9 +37,9 @@ console.log(random);
     Create a variable called "me" and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
 */
 
-var me = {name:"Paul", surname:"Murray", age:30}
+var me = {name:"Brandon", surname:"Burnett", age:22}
     delete me.age;
-    
+    me.splice(-1,1);
     console.log(me);
 
 /* Ex.E
@@ -51,9 +51,106 @@ var me = {name:"Paul", surname:"Murray", age:30}
    Programmatically add to the object me an array called "skills", containing the programming languages you know right now.
 */
 
-var skills = ["BeginnerJavaScript", "HTML", "CSS"];
+var skills = ["JavaScript", "C++", "Python"];
 
 
 /* Ex.G 
    Programmatically remove the last skill from the "skills" array inside the "me" object.
+   done on line 42
 */
+
+// JS Functions
+/* Ex.1
+    Write a function called "dice"; it should randomize an integer number between 1 and 6.
+*/
+
+function dice(myMin, myMax) {
+    return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+  }
+  
+  var myRandom = dice(1, 6);
+  
+  console.log(myRandom);
+
+/* Ex.2 
+    Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
+*/
+
+function whoIsBigger(numOne, numTwo) {
+    if (numOne > numTwo) {
+        console.log("The first number is the largest.")
+    }
+    else {
+        console.log("The second number is the largest")
+    }
+    return
+}
+whoIsBigger(5, 10); 
+
+
+
+/* Ex.3
+    Write a function called "splitMe" which receives a string as a parameter and returns an array with every word in that string.
+    Ex. splitMe("I love coding") => returns ["I", "Love", "Coding"]
+*/
+
+function splitMe(text){
+    let x = text.replace(/[^A-Za-z0-9]+/g, " ");
+    let newArr = x.trim().split(" ");
+    return newArr;
+}
+
+console.log(splitMe("I love coding"));
+
+
+/* Ex.4
+    Write a function called "deleteOne" which receives a string and a boolean as parameters. If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
+*/
+
+function deleteOne(str, trueFalse) {
+    if (trueFalse === false) {
+        return str.substring(1, str.length);
+    } else if (trueFalse === true) {
+        return str.substring(0, str.length - 1);
+    };
+}
+
+console.log(deleteOne("MyString", true));
+
+/* Ex.5
+   Write a function called "onlyLetters" which receives a string as a parameter and returns it removing all the digits.
+   Ex.: onlyLetters("I have 4 dogs")  => returns "I have  dogs"
+*/
+
+function onlyLetters(str) {
+    var withNoNumbers = str.replace(/[0-9]/g, '');
+    return withNoNumbers
+}
+
+console.log(onlyLetters("124124 String without numbers 129417"));
+
+/* Ex.6 
+   Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
+*/
+
+function isThisAnEmail(str) {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(str))
+     {
+       return (true)
+     }
+       console.log("You have entered an invalid email address!")
+       return (false)
+   }
+
+   console.log(isThisAnEmail("pm1@outlook.com"));
+   console.log(isThisAnEmail("pm1@.outlook.com"));  
+
+/* Ex.7
+   Write a function called "whatDayIsIt" that should return the current day of the week.
+*/
+function whatDayIsIt(str) {
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var d = Date("25th July 2020");
+var dayName = days[d.getDay()];
+}
+console.log(dayName);
